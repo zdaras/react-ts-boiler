@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from './constants';
+import * as constants from '@/store/constants';
 
 export interface CounterState {
 	count: number;
@@ -15,8 +15,8 @@ export const homeInitialState: CounterState = {
 
 export default (state = homeInitialState, { type, payload }: CounterAction) => {
 	switch (type) {
-		case INCREMENT:
-		case DECREMENT:
+		case constants.INCREMENT:
+		case constants.DECREMENT:
 			return {
 				...state,
 				count: state.count + payload

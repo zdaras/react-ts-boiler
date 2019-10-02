@@ -3,15 +3,11 @@ import SVG from 'react-inlinesvg';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import Button from '@components/button';
-import { RootStore } from '@src/store';
-import { CounterState } from './reducer';
-import { increment, decrement } from './actions';
-import { INCREMENT_ASYNC, DECREMENT_ASYNC } from './constants';
-
-import './index.scss';
-
-import * as ReduxSagaLogo from '@assets/redux-saga.png';
+import Button from '@/components/button';
+import { RootStore } from '@/store/store';
+import { CounterState } from '@/store/reducers/counter';
+import { increment, decrement } from '@/store/actions/counter';
+import { INCREMENT_ASYNC, DECREMENT_ASYNC } from '@/store/constants';
 
 interface Counter {
 	count: number;
@@ -22,7 +18,7 @@ interface Props {
 	readonly dispatch: Dispatch;
 }
 
-export const Home = ({ counter, dispatch }: Props): React.ReactElement<any> => (
+export const Home: React.FC<Props> = ({ counter, dispatch }) => (
 	<React.Fragment>
 		<SVG src="assets/react.svg" className="c-svg-icon" />
 
@@ -37,17 +33,11 @@ export const Home = ({ counter, dispatch }: Props): React.ReactElement<any> => (
 
 			<Button onClick={() => dispatch(increment())}>+</Button>
 		</div>
-
-		<img src={ReduxSagaLogo as any} alt="Redux Saga Logo" style={{ display: 'block', margin: 'auto' }} />
 	</React.Fragment>
 );
 
-export default connect(
-	(
-		store: RootStore
-	): {
-		readonly counter: CounterState;
-	} => ({
-		counter: store.counter
-	})
-)(Home);
+export default connect((store: RootStore): {
+	readonly counter: CounterState;
+} => ({
+	counter: store.counter
+}))(Home);

@@ -24,7 +24,7 @@
 		"react-router-dom": "5.1.2",
 		"redux": "4.0.4",
 		"redux-devtools-extension": "2.13.8",
-		"redux-saga": "1.1.1"
+		"redux-thunk": "^2.3.0"
 	},
 	"devDependencies": {
 		"@hot-loader/react-dom": "16.9.0",
@@ -98,6 +98,7 @@
 	"jest": {
 		"moduleDirectories": [
 			"node_modules",
+			"test",
 			"src"
 		],
 		"moduleFileExtensions": [
@@ -109,33 +110,34 @@
 			"node"
 		],
 		"moduleNameMapper": {
+			"^@/(.*)$": "<rootDir>/src/$1",
 			"^@src/(.*)$": "<rootDir>/src/$1",
 			"^@root/(.*)$": "<rootDir>/$1",
 			"^@assets/(.*)$": "<rootDir>/src/assets/$1",
 			"^@utilities/(.*)$": "<rootDir>/src/utilities/$1",
 			"^@components/(.*)$": "<rootDir>/src/components/$1",
 			"^@containers/(.*)$": "<rootDir>/src/containers/$1",
-			"\\.(css|less|sass|scss)$": "<rootDir>/test-config/StyleMock.js",
-			"\\.(jpg|jpeg|png|gif|ico|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test-config/FileMock.js"
+			"\\.(css|less|sass|scss)$": "<rootDir>/test/test-config/StyleMock.js",
+			"\\.(jpg|jpeg|png|gif|ico|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/test-config/FileMock.js"
 		},
 		"setupFiles": [
-			"<rootDir>/test-config/index.js",
-			"<rootDir>/test-config/LocalStorageMock.js"
+			"<rootDir>/test/test-config/index.js",
+			"<rootDir>/test/test-config/LocalStorageMock.js"
 		],
 		"snapshotSerializers": [
 			"enzyme-to-json/serializer"
 		],
 		"transform": {
 			"^.+\\.tsx?$": "ts-jest",
-			"\\.(css|less|sass|scss)$": "<rootDir>/test-config/StyleMock.js",
-			"\\.(jpg|jpeg|png|gif|ico|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test-config/FileMock.js"
+			"\\.(css|less|sass|scss)$": "<rootDir>/test/test-config/StyleMock.js",
+			"\\.(jpg|jpeg|png|gif|ico|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/test-config/FileMock.js"
 		},
 		"verbose": false,
 		"testRegex": ".*\\.(test|spec)\\.(j|tsx?)$",
 		"testPathIgnorePatterns": [
 			"<rootDir>/node_modules/",
 			"<rootDir>/dist/",
-			"<rootDir>/test-config/"
+			"<rootDir>/test/test-config/"
 		]
 	},
 	"private": true

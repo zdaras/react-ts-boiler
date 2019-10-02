@@ -207,7 +207,7 @@ module.exports = (env: Environment = {}): Configuration => {
 		},
 		plugins: [
 			new HtmlWebPackPlugin({
-				template: './src/index.html',
+				template: './src/assets/index.html',
 				filename: './index.html',
 				inject: true,
 				...(isDev
@@ -283,6 +283,8 @@ module.exports = (env: Environment = {}): Configuration => {
 		devServer: {
 			hot: true,
 			noInfo: true,
+			clientLogLevel: 'none',
+			stats: 'errors-only',
 			contentBase: './dist',
 			historyApiFallback: true
 		},

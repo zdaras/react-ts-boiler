@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"baseUrl": "./",
 		"paths": {
+			"@/*": ["src/*"],
 			"@src/*": ["src/*"],
 			"@root/*": ["/*"],
 			"@assets/*": ["src/assets/*"],
@@ -31,10 +32,10 @@
 		"noImplicitThis": true,
 		"strictNullChecks": true,
 		"pretty": true,
-		"removeComments": false,
+		"removeComments": true,
 		"sourceMap": true
 	},
 	"compileOnSave": false,
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "test/**/*"],
 	"exclude": ["node_modules"]
 }

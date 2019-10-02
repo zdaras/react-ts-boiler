@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { install, applyUpdate } from 'offline-plugin/runtime';
 
 import { App } from './app';
-import { RootStore, configureStore, history } from './store';
+import { RootStore, configureStore, history } from './store/store';
 
 export const store: Store<RootStore> = configureStore();
 
