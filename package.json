@@ -5,7 +5,7 @@
 	"main": "./src/index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open --env.dev",
-		"build": "rm -rf ./dist && webpack --mode production",
+		"build": "rimraf ./dist && webpack --mode production",
 		"lint": "npm run lint:ts && npm run lint:scss",
 		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'src/**/*.{ts,tsx}'",
 		"lint:scss": "stylelint './src/**/*.scss' --config .stylelintrc",
@@ -25,7 +25,8 @@
 		"react-router-dom": "5.1.2",
 		"redux": "4.0.4",
 		"redux-devtools-extension": "2.13.8",
-		"redux-thunk": "^2.3.0"
+		"redux-thunk": "^2.3.0",
+		"rimraf": "^3.0.0"
 	},
 	"devDependencies": {
 		"@hot-loader/react-dom": "16.9.0",

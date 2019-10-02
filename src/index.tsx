@@ -22,15 +22,17 @@ const router = (Application: any): JSX.Element => (
 
 renderRoot(router(App));
 
-if (module.hot) {
-	module.hot.accept();
-
-	renderRoot(router(require('./app').App));
-}
-
 if (process.env.NODE_ENV === 'production') {
 	install({
 		onUpdateReady: () => applyUpdate(),
 		onUpdated: () => window.location.reload()
 	});
+}
+
+if (process.env.NODE_ENV === 'development') {
+	if (module.hot) {
+		module.hot.accept();
+
+		renderRoot(router(require('./app').App));
+	}
 }

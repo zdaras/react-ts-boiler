@@ -194,6 +194,7 @@ module.exports = (env: Environment = {}): Configuration => {
 		},
 		resolve: {
 			alias: {
+				'@': PATHS.src,
 				'@src': PATHS.src,
 				'@root': PATHS.root,
 				'@assets': PATHS.assets,

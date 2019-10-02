@@ -19,10 +19,9 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = ({ counter, dispatch }) => (
-	<React.Fragment>
-		<SVG src="assets/react.svg" className="c-svg-icon" />
-
+	<>
 		<div className="o-wrapper">
+			{/* <SVG src="assets/react.svg" className="c-svg-icon" /> */}
 			<Button onClick={() => dispatch(decrement())}>-</Button>
 
 			<Button onClick={() => dispatch({ type: DECREMENT_ASYNC })}>Async -</Button>
@@ -33,7 +32,7 @@ export const Home: React.FC<Props> = ({ counter, dispatch }) => (
 
 			<Button onClick={() => dispatch(increment())}>+</Button>
 		</div>
-	</React.Fragment>
+	</>
 );
 
 export default connect((store: RootStore): {

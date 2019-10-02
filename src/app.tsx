@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 
-import 'app.scss';
+import '@/assets/scss/app.scss';
 
 import * as Loadables from './loadables';
 
