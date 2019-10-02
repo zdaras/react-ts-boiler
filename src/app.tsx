@@ -8,9 +8,11 @@ import '@/assets/scss/app.scss';
 
 import * as Loadables from './loadables';
 
-export const App = hot(() => (
+const App = hot(() => (
 	<Switch>
 		<Route path="/" component={Loadables.LoadableHomeComponent} />
 		<Route component={Loadables.LoadableNotFoundComponent} />
 	</Switch>
 ));
+
+export default App;

@@ -5,11 +5,14 @@ import { combineReducers } from 'redux';
 import counter, { CounterState } from './counter';
 
 export interface RootStore {
+	router: object;
 	counter: CounterState;
 }
 
-export default (history: History<any>) =>
+const rootReducer = (history: History<any>) =>
 	combineReducers({
 		router: connectRouter(history),
 		counter
 	});
+
+export default rootReducer;

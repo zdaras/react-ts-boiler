@@ -6,7 +6,7 @@ export interface CounterState {
 
 export interface CounterAction {
 	type: string;
-	payload: number;
+	payload: CounterState;
 }
 
 const initialState: CounterState = {
@@ -19,7 +19,7 @@ export default (state: CounterState = initialState, action: CounterAction) => {
 		case constants.DECREMENT:
 			return {
 				...state,
-				count: state.count + action.payload
+				count: state.count + action.payload.count
 			};
 
 		default:

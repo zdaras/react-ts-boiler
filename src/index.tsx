@@ -1,26 +1,27 @@
 import * as React from 'react';
-import { Store } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { install, applyUpdate } from 'offline-plugin/runtime';
 
-import { App } from './app';
-import { RootStore, configureStore, history } from './store/store';
+import App from '@/app';
+import { configureStore, history } from '@/store/store';
 
-export const store: Store<RootStore> = configureStore();
+export const store = configureStore();
 
-const node: HTMLElement | null = document.getElementById('app');
-const renderRoot = (app: JSX.Element): void => render(app, node);
-const router = (Application: any): JSX.Element => (
-	<Provider store={store}>
-		<ConnectedRouter history={history}>
-			<Application />
-		</ConnectedRouter>
-	</Provider>
-);
+history.listen(() => window.scrollTo(0, 0));
 
-renderRoot(router(App));
+const renderApp = (Application: any) =>
+	render(
+		<Provider store={store}>
+			<ConnectedRouter history={history}>
+				<Application />
+			</ConnectedRouter>
+		</Provider>,
+		document.getElementById('app')
+	);
+
+renderApp(App);
 
 if (process.env.NODE_ENV === 'production') {
 	install({
@@ -31,8 +32,11 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV === 'development') {
 	if (module.hot) {
-		module.hot.accept();
-
-		renderRoot(router(require('./app').App));
+		module.hot.accept('./app', () => {
+			renderApp(require('./app').default);
+		});
+		module.hot.accept('./store/reducers', () => {
+			store.replaceReducer(require('./store/reducers').default(history));
+		});
 	}
 }

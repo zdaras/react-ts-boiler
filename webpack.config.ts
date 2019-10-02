@@ -233,12 +233,7 @@ module.exports = (env: Environment = {}): Configuration => {
 					NODE_ENV: JSON.stringify(isDev ? 'development' : 'production')
 				}
 			}),
-			new CopyWebpackPlugin([
-				{
-					from: 'src/assets/',
-					to: 'assets/'
-				}
-			]),
+			new CopyWebpackPlugin([{ from: 'src/assets/', to: 'assets/', ignore: ['*.scss'] }]),
 			new MiniCssExtractPlugin({
 				filename: isDev ? '[name].css' : '[name].[hash].css',
 				chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
