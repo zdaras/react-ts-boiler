@@ -9,7 +9,8 @@
 		"lint": "npm run lint:ts && npm run lint:scss",
 		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'src/**/*.{ts,tsx}'",
 		"lint:scss": "stylelint './src/**/*.scss' --config .stylelintrc",
-		"test": "jest"
+		"test": "jest",
+		"test:update": "npm test -- -u"
 	},
 	"dependencies": {
 		"connected-react-router": "6.5.2",

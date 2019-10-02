@@ -3,5 +3,33 @@
 exports[`Home component should render successfully 1`] = `
 <div
   className="o-wrapper"
-/>
+>
+  <button
+    className="c-btn "
+    onClick={[Function]}
+  >
+    -
+  </button>
+  <button
+    className="c-btn "
+    onClick={[Function]}
+  >
+    Async -
+  </button>
+  <small>
+    0
+  </small>
+  <button
+    className="c-btn "
+    onClick={[Function]}
+  >
+    Async +
+  </button>
+  <button
+    className="c-btn "
+    onClick={[Function]}
+  >
+    +
+  </button>
+</div>
 `;

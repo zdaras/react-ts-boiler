@@ -2,7 +2,7 @@ import { History } from 'history';
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
-import counter from '@containers/home/reducer';
+import counter from './counter';
 
 export default (history: History<any>) =>
 	combineReducers({

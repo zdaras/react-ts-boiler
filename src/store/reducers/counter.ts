@@ -9,17 +9,17 @@ export interface CounterAction {
 	payload: number;
 }
 
-export const homeInitialState: CounterState = {
+export const initialState: CounterState = {
 	count: 0
 };
 
-export default (state = homeInitialState, { type, payload }: CounterAction) => {
-	switch (type) {
+export default (state = initialState, action: CounterAction) => {
+	switch (action.type) {
 		case constants.INCREMENT:
 		case constants.DECREMENT:
 			return {
 				...state,
-				count: state.count + payload
+				count: state.count + action.payload
 			};
 
 		default:

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Home } from '../../../src/containers/home';
+import { Home } from '@/containers/home';
 
 jest.mock('react-inlinesvg');
 
