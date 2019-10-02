@@ -1,5 +1,4 @@
 import * as React from 'react';
-import SVG from 'react-inlinesvg';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
@@ -21,7 +20,6 @@ interface Props {
 export const Home: React.FC<Props> = ({ counter, dispatch }) => (
 	<>
 		<div className="o-wrapper">
-			{/* <SVG src="assets/react.svg" className="c-svg-icon" /> */}
 			<Button onClick={() => dispatch(decrement())}>-</Button>
 
 			<Button onClick={() => dispatch({ type: DECREMENT_ASYNC })}>Async -</Button>

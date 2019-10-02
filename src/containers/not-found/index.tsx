@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import './index.scss';
-
-export const NotFound = (): React.ReactElement<any> => (
+export const NotFound: React.FC = (): React.ReactElement<HTMLDivElement> => (
 	<div className="c-not-found">
 		404 <br />
 		Page not found
