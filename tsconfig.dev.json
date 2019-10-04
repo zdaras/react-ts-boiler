@@ -3,6 +3,7 @@
   "transpileOnly": true,
   "compilerOptions": {
       "target": "es6",
+      "module": "esnext",
       "noUnusedLocals": false,
       "noUnusedParameters": false,
       "sourceMap": true,

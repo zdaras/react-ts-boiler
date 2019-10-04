@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { install, applyUpdate } from 'offline-plugin/runtime';
 
-import App from '@/app';
+import App from '@/router/app';
 import { configureStore, history } from '@/store/store';
 
 export const store = configureStore();
@@ -32,8 +32,8 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV === 'development') {
 	if (module.hot) {
-		module.hot.accept('./app', () => {
-			renderApp(require('./app').default);
+		module.hot.accept('./router/app', () => {
+			renderApp(require('./router/app').default);
 		});
 		module.hot.accept('./store/reducers', () => {
 			store.replaceReducer(require('./store/reducers').default(history));

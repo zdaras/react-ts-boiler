@@ -46,16 +46,16 @@ const tsConfig: webpack.Rule = {
 	loaders: [
 		'react-hot-loader/webpack',
 		{
-			loader: 'ts-loader',
-			options: {
-				transpileOnly: true,
-				compilerOptions: {
-					sourceMap: true,
-					target: 'es5',
-					isolatedModules: true,
-					noEmitOnError: false
-				}
-			}
+			loader: 'ts-loader'
+			// options: {
+			// 	transpileOnly: true,
+			// 	compilerOptions: {
+			// 		sourceMap: true,
+			// 		target: 'es5',
+			// 		isolatedModules: true,
+			// 		noEmitOnError: false
+			// 	}
+			// }
 		}
 	],
 	exclude: PATHS.nodeModules,
