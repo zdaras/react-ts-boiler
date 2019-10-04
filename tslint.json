@@ -1,6 +1,6 @@
 {
 	"defaultSeverity": "error",
-	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier", "tslint-react-hooks", "tslint-config-airbnb-base"],
 	"rules": {
 		"trailing-comma": false,
 		"no-console": [true, "time", "timeEnd", "trace", "log"],
@@ -23,6 +23,10 @@
 		"jsx-curly-spacing": [2, "always"],
 		"no-bitwise": false,
 		"max-classes-per-file": [true, 3, "exclude-class-expressions"],
-		"no-var-requires": false
+		"no-var-requires": false,
+		"react-hooks-nesting": "error",
+		"linebreak-style": false,
+		"ter-indent": [true, "tab"],
+		"ter-no-tabs": false
 	}
 }
