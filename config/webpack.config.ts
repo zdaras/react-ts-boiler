@@ -181,6 +181,7 @@ module.exports = (env: IEnvironment = {}): IConfiguration => {
 	const isDev: boolean | undefined = env.dev;
 
 	return {
+		mode: isDev ? 'development' : 'production',
 		entry: ['./src/index.tsx'],
 		output: {
 			path: PATHS.dist,
@@ -279,7 +280,7 @@ module.exports = (env: IEnvironment = {}): IConfiguration => {
 		devServer: {
 			hot: true,
 			noInfo: true,
-			clientLogLevel: 'none',
+			clientLogLevel: 'error',
 			stats: 'errors-only',
 			contentBase: './dist',
 			historyApiFallback: true

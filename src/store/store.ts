@@ -4,15 +4,15 @@ import { History, createBrowserHistory } from 'history';
 import { Store, Middleware, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import rootReducer, { RootStore } from './reducers';
+import rootReducer, { IRootStore } from './reducers';
 
 export const history: History = createBrowserHistory();
 const historyMiddleware: Middleware = routerMiddleware(history);
 const thunkMiddleware: Middleware = thunk;
 const middlewares = [thunkMiddleware, historyMiddleware];
 
-export const configureStore = (preloadedState: object = {}): Store<RootStore> => {
-	const store: Store<RootStore> = createStore(
+export const configureStore = (preloadedState: object = {}): Store<IRootStore> => {
+	const store: Store<IRootStore> = createStore(
 		rootReducer(history),
 		preloadedState,
 		composeWithDevTools(applyMiddleware(...middlewares))

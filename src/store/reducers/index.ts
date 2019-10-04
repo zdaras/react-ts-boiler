@@ -10,7 +10,7 @@ const rootReducer = (history: History) =>
 		counter
 	});
 
-export interface RootStore {
+export interface IRootStore {
 	router: RouterState;
 	counter: ICounterState;
 }

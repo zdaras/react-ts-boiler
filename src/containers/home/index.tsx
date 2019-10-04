@@ -1,29 +1,43 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 
 import Button from '@/components/button';
-import { RootStore } from '@/store/reducers';
+import { IRootStore } from '@/store/reducers';
 import { ICounterState } from '@/store/reducers/counter';
-import { increment, decrement } from '@/store/actions/counter';
+import * as counterActions from '@/store/actions/counter';
 
-export const Home: FC<IProps> = ({ counter, dispatch }): ReactElement<HTMLDivElement> => (
+export const Home: FC<IStateProps & IDispatchProps> = ({
+	counter,
+	increment,
+	decrement
+}): ReactElement<HTMLDivElement> => (
 	<div className="o-wrapper">
-		<Button onClick={() => dispatch(decrement())}>-</Button>
+		<Button onClick={() => decrement()}>-</Button>
 
 		<small>{counter.count}</small>
 
-		<Button onClick={() => dispatch(increment())}>+</Button>
+		<Button onClick={() => increment()}>+</Button>
 	</div>
 );
 
-interface IProps {
+interface IStateProps {
 	counter: ICounterState;
-	dispatch: Dispatch;
+}
+interface IDispatchProps {
+	increment: () => void;
+	decrement: () => void;
 }
 
-const mapStateToProps = (state: RootStore): { counter: ICounterState } => ({
+const mapStateToProps = (state: IRootStore): IStateProps => ({
 	counter: state.counter
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps: IDispatchProps = {
+	increment: counterActions.increment,
+	decrement: counterActions.decrement
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Home);
