@@ -1,18 +1,18 @@
 import { History } from 'history';
-import { connectRouter } from 'connected-react-router';
+import { RouterState, connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
-import counter, { CounterState } from './counter';
+import counter, { ICounterState } from './counter';
 
-export interface RootStore {
-	router: object;
-	counter: CounterState;
-}
-
-const rootReducer = (history: History<any>) =>
+const rootReducer = (history: History) =>
 	combineReducers({
 		router: connectRouter(history),
 		counter
 	});
+
+export interface RootStore {
+	router: RouterState;
+	counter: ICounterState;
+}
 
 export default rootReducer;

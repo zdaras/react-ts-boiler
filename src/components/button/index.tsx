@@ -1,16 +1,15 @@
-import * as React from 'react';
+import React, { FC, ReactElement } from 'react';
 
 import './index.scss';
 
-interface Props {
+interface IProps {
 	type?: 'submit' | 'reset' | 'button';
-	children?: any;
+	children?: React.ReactNode;
 	className?: string;
-	onClick?: any;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-export const Button = (props: Props): React.ReactElement<HTMLButtonElement> => {
-	const { type, children, className, onClick } = props;
+export const Button: FC<IProps> = ({ type, children, className, onClick }): ReactElement<HTMLButtonElement> => {
 	const classes: string[] = className ? className.split(' ') : [''];
 	const classNames: string = ['c-btn'].concat(classes).join(' ');
 

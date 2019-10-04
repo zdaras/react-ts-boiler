@@ -1,19 +1,19 @@
 import * as constants from '@/store/constants';
 
-export interface CounterState {
+export interface ICounterState {
 	count: number;
 }
 
-export interface CounterAction {
+export interface ICounterAction {
 	type: string;
-	payload: CounterState;
+	payload: ICounterState;
 }
 
-const initialState: CounterState = {
+const initialState: ICounterState = {
 	count: 0
 };
 
-export default (state: CounterState = initialState, action: CounterAction) => {
+export default (state: ICounterState = initialState, action: ICounterAction) => {
 	switch (action.type) {
 		case constants.INCREMENT:
 		case constants.DECREMENT:

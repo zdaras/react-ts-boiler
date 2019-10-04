@@ -10,21 +10,9 @@ exports[`Home component should render successfully 1`] = `
   >
     -
   </button>
-  <button
-    className="c-btn "
-    onClick={[Function]}
-  >
-    Async -
-  </button>
   <small>
     0
   </small>
-  <button
-    className="c-btn "
-    onClick={[Function]}
-  >
-    Async +
-  </button>
   <button
     className="c-btn "
     onClick={[Function]}

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as renderer from 'react-test-renderer';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-import Button from '.';
+import Button from '@/components/button';
 
 describe('Button component', () => {
 	it('should render successfully', () => {

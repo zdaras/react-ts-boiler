@@ -1,36 +1,36 @@
-import * as path from 'path';
-import * as webpack from 'webpack';
-import * as TerserPlugin from 'terser-webpack-plugin';
-import * as CopyWebpackPlugin from 'copy-webpack-plugin';
-import * as HtmlWebPackPlugin from 'html-webpack-plugin';
-import * as WebpackPwaManifest from 'webpack-pwa-manifest';
-import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
+import webpack from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
-interface Configuration extends WebpackConfiguration {
+interface IConfiguration extends WebpackConfiguration {
 	devServer?: WebpackDevServerConfiguration;
 }
 
 // because there are no type definitions available
 const OfflinePlugin: any = require('offline-plugin');
 
-interface IndexedList<T> {
+interface IIndexedList<T> {
 	[key: string]: T;
 }
 
-interface Environment {
+interface IEnvironment {
 	dev?: boolean | undefined;
 }
 
-interface HotLoader extends webpack.NewLoader {
+interface IHotLoader extends webpack.NewLoader {
 	hot: boolean;
 }
 
 const resolve: (path: string) => string = path.resolve.bind(__dirname);
 
-const PATHS: IndexedList<string> = {
+const PATHS: IIndexedList<string> = {
 	src: resolve('./src'),
 	root: resolve('./'),
 	dist: resolve('./dist'),
@@ -93,7 +93,7 @@ const cssConfig: webpack.Rule = {
 		{
 			loader: 'postcss-loader',
 			options: {
-				plugins: (loader: HotLoader): string[] => {
+				plugins: (loader: IHotLoader): string[] => {
 					return loader.hot
 						? postcssPlugins
 						: [
@@ -177,7 +177,7 @@ const mediaConfig: webpack.Rule = {
 	}
 };
 
-module.exports = (env: Environment = {}): Configuration => {
+module.exports = (env: IEnvironment = {}): IConfiguration => {
 	const isDev: boolean | undefined = env.dev;
 
 	return {
