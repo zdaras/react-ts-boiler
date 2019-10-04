@@ -9,6 +9,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
+const isDev: boolean = process.env.NODE_ENV === 'development';
+
 interface IConfiguration extends WebpackConfiguration {
 	devServer?: WebpackDevServerConfiguration;
 }
@@ -177,169 +179,165 @@ const mediaConfig: webpack.Rule = {
 	}
 };
 
-module.exports = (env: IEnvironment = {}): IConfiguration => {
-	const isDev: boolean | undefined = env.dev;
-
-	return {
-		mode: isDev ? 'development' : 'production',
-		entry: ['./src/index.tsx'],
-		output: {
-			path: PATHS.dist,
-			filename: isDev ? '[name].js' : '[name].[chunkhash].bundle.js',
-			sourceMapFilename: isDev ? '[name].bundle.map' : '[name].[chunkhash].bundle.map',
-			chunkFilename: isDev ? '[name].chunk.js' : '[name].[chunkhash].chunk.js',
-			publicPath: '/'
+module.exports = {
+	mode: isDev ? 'development' : 'production',
+	entry: ['./src/index.tsx'],
+	output: {
+		path: PATHS.dist,
+		filename: isDev ? '[name].js' : '[name].[chunkhash].bundle.js',
+		sourceMapFilename: isDev ? '[name].bundle.map' : '[name].[chunkhash].bundle.map',
+		chunkFilename: isDev ? '[name].chunk.js' : '[name].[chunkhash].chunk.js',
+		publicPath: '/'
+	},
+	module: {
+		rules: [tsConfig, htmlConfig, cssConfig, fontsConfig, svgConfig, svgCSSConfig, imagesConfig, mediaConfig]
+	},
+	resolve: {
+		alias: {
+			'@': PATHS.src,
+			'@src': PATHS.src,
+			'@root': PATHS.root,
+			'@assets': PATHS.assets,
+			'@utilities': PATHS.utilities,
+			'@components': PATHS.components,
+			'@containers': PATHS.containers,
+			'react-dom': '@hot-loader/react-dom'
 		},
-		module: {
-			rules: [tsConfig, htmlConfig, cssConfig, fontsConfig, svgConfig, svgCSSConfig, imagesConfig, mediaConfig]
-		},
-		resolve: {
-			alias: {
-				'@': PATHS.src,
-				'@src': PATHS.src,
-				'@root': PATHS.root,
-				'@assets': PATHS.assets,
-				'@utilities': PATHS.utilities,
-				'@components': PATHS.components,
-				'@containers': PATHS.containers,
-				'react-dom': '@hot-loader/react-dom'
-			},
-			extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-			modules: ['src', 'node_modules']
-		},
-		plugins: [
-			new HtmlWebPackPlugin({
-				template: './src/assets/index.html',
-				filename: './index.html',
-				inject: true,
-				...(isDev
-					? {}
-					: {
-							minify: {
-								removeComments: true,
-								collapseWhitespace: true,
-								removeRedundantAttributes: true,
-								useShortDoctype: true,
-								removeEmptyAttributes: true,
-								removeStyleLinkTypeAttributes: true,
-								keepClosingSlash: true,
-								minifyJS: true,
-								minifyCSS: true,
-								minifyURLs: true
-							}
-					  })
-			}),
-			new webpack.DefinePlugin({
-				'process.env': {
-					NODE_ENV: JSON.stringify(isDev ? 'development' : 'production')
-				}
-			}),
-			new CopyWebpackPlugin([{ from: 'src/assets/', to: 'assets/', ignore: ['*.scss'] }]),
-			new MiniCssExtractPlugin({
-				filename: isDev ? '[name].css' : '[name].[hash].css',
-				chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
-			}),
+		extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+		modules: ['src', 'node_modules']
+	},
+	plugins: [
+		new HtmlWebPackPlugin({
+			template: './src/assets/index.html',
+			filename: './index.html',
+			inject: true,
 			...(isDev
-				? [new webpack.HotModuleReplacementPlugin()]
-				: [
-						new OfflinePlugin({
-							relativePaths: false,
-							publicPath: '/',
-							appShell: '/',
-							caches: {
-								main: [':rest:'],
-								additional: ['*.chunk.js']
-							},
-							safeToUseOptionalCaches: true
-						}),
-						new WebpackPwaManifest({
-							name: 'React Template',
-							short_name: 'React TPL',
-							description: 'A React application!',
-							background_color: '#cccccc',
-							theme_color: '#333333',
-							inject: true,
-							ios: true,
-							icons: [
-								{
-									src: resolve('src/assets/icon-512x512.png'),
-									sizes: [72, 96, 128, 144, 192, 384, 512]
-								},
-								{
-									src: resolve('src/assets/icon-512x512.png'),
-									sizes: [120, 152, 167, 180],
-									ios: true
-								}
-							]
-						})
-				  ])
-		],
-		cache: true,
-		bail: false,
-		devtool: isDev ? 'eval-source-map' : false,
-		devServer: {
-			hot: true,
-			noInfo: true,
-			clientLogLevel: 'error',
-			stats: 'errors-only',
-			contentBase: './dist',
-			historyApiFallback: true
-		},
-		stats: 'errors-only',
-		performance: {
-			hints: false
-		},
-		optimization: isDev
-			? {
-					splitChunks: {
-						chunks: 'all'
-					}
-			  }
-			: {
-					minimize: true,
-					minimizer: [
-						new TerserPlugin({
-							terserOptions: {
-								warnings: false,
-								compress: {
-									comparisons: false
-								},
-								mangle: true,
-								output: {
-									comments: false,
-									ascii_only: true
-								}
-							},
-							parallel: true,
-							cache: true,
-							sourceMap: true
-						})
-					],
-					nodeEnv: 'production',
-					sideEffects: true,
-					concatenateModules: true,
-					splitChunks: {
-						chunks: 'all',
-						minSize: 30000,
-						minChunks: 1,
-						maxAsyncRequests: 5,
-						maxInitialRequests: 3,
-						name: true,
-						cacheGroups: {
-							commons: {
-								test: /[\\/]node_modules[\\/]/,
-								name: 'vendor',
-								chunks: 'all'
-							},
-							main: {
-								chunks: 'all',
-								minChunks: 2,
-								reuseExistingChunk: true,
-								enforce: true
-							}
+				? {}
+				: {
+						minify: {
+							removeComments: true,
+							collapseWhitespace: true,
+							removeRedundantAttributes: true,
+							useShortDoctype: true,
+							removeEmptyAttributes: true,
+							removeStyleLinkTypeAttributes: true,
+							keepClosingSlash: true,
+							minifyJS: true,
+							minifyCSS: true,
+							minifyURLs: true
 						}
-					},
-					runtimeChunk: true
-			  }
-	};
+				  })
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify(isDev ? 'development' : 'production')
+			}
+		}),
+		new CopyWebpackPlugin([{ from: 'src/assets/', to: 'assets/', ignore: ['*.scss'] }]),
+		new MiniCssExtractPlugin({
+			filename: isDev ? '[name].css' : '[name].[hash].css',
+			chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
+		}),
+		...(isDev
+			? [new webpack.HotModuleReplacementPlugin()]
+			: [
+					new OfflinePlugin({
+						relativePaths: false,
+						publicPath: '/',
+						appShell: '/',
+						caches: {
+							main: [':rest:'],
+							additional: ['*.chunk.js']
+						},
+						safeToUseOptionalCaches: true
+					}),
+					new WebpackPwaManifest({
+						name: 'React Template',
+						short_name: 'React TPL',
+						description: 'A React application!',
+						background_color: '#cccccc',
+						theme_color: '#333333',
+						inject: true,
+						ios: true,
+						icons: [
+							{
+								src: resolve('src/assets/icon-512x512.png'),
+								sizes: [72, 96, 128, 144, 192, 384, 512]
+							},
+							{
+								src: resolve('src/assets/icon-512x512.png'),
+								sizes: [120, 152, 167, 180],
+								ios: true
+							}
+						]
+					})
+			  ])
+	],
+	cache: true,
+	bail: false,
+	devtool: isDev ? 'eval-source-map' : false,
+	devServer: {
+		hot: true,
+		noInfo: true,
+		clientLogLevel: 'error',
+		stats: 'errors-only',
+		contentBase: './dist',
+		historyApiFallback: true
+	},
+	stats: 'errors-only',
+	performance: {
+		hints: false
+	},
+	optimization: isDev
+		? {
+				splitChunks: {
+					chunks: 'all'
+				}
+		  }
+		: {
+				minimize: true,
+				minimizer: [
+					new TerserPlugin({
+						terserOptions: {
+							warnings: false,
+							compress: {
+								comparisons: false
+							},
+							mangle: true,
+							output: {
+								comments: false,
+								ascii_only: true
+							}
+						},
+						parallel: true,
+						cache: true,
+						sourceMap: true
+					})
+				],
+				nodeEnv: 'production',
+				sideEffects: true,
+				concatenateModules: true,
+				splitChunks: {
+					chunks: 'all',
+					minSize: 30000,
+					minChunks: 1,
+					maxAsyncRequests: 5,
+					maxInitialRequests: 3,
+					name: true,
+					cacheGroups: {
+						commons: {
+							test: /[\\/]node_modules[\\/]/,
+							name: 'vendor',
+							chunks: 'all'
+						},
+						main: {
+							chunks: 'all',
+							minChunks: 2,
+							reuseExistingChunk: true,
+							enforce: true
+						}
+					}
+				},
+				runtimeChunk: true
+		  }
 };
