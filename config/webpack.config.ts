@@ -1,47 +1,24 @@
-import path from 'path';
-import webpack from 'webpack';
+import webpack, { Configuration as WebpackConfiguration } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+
+import { PATHS, resolve } from './paths';
 
 const isDev: boolean = process.env.NODE_ENV === 'development';
 
 interface IConfiguration extends WebpackConfiguration {
 	devServer?: WebpackDevServerConfiguration;
 }
-
 // because there are no type definitions available
 const OfflinePlugin: any = require('offline-plugin');
-
-interface IIndexedList<T> {
-	[key: string]: T;
-}
-
-interface IEnvironment {
-	dev?: boolean | undefined;
-}
 
 interface IHotLoader extends webpack.NewLoader {
 	hot: boolean;
 }
-
-const resolve: (path: string) => string = path.resolve.bind(__dirname);
-
-const PATHS: IIndexedList<string> = {
-	src: resolve('./src'),
-	root: resolve('./'),
-	dist: resolve('./dist'),
-	assets: resolve('./src/assets'),
-	utilities: resolve('./src/utilities'),
-	components: resolve('./src/components'),
-	containers: resolve('./src/containers'),
-	nodeModules: resolve('./node_modules')
-};
 
 const tsConfig: webpack.Rule = {
 	test: /\.tsx?$/,
@@ -179,7 +156,9 @@ const mediaConfig: webpack.Rule = {
 	}
 };
 
-module.exports = {
+// Webpack config
+
+const config: IConfiguration = {
 	mode: isDev ? 'development' : 'production',
 	entry: ['./src/index.tsx'],
 	output: {
@@ -341,3 +320,5 @@ module.exports = {
 				runtimeChunk: true
 		  }
 };
+
+module.exports = config;

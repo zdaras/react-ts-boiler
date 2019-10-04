@@ -1,6 +1,6 @@
 {
 	"defaultSeverity": "error",
-	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier", "tslint-react-hooks"],
+	"extends": ["tslint:recommended", "tslint-config-airbnb", "tslint-react", "tslint-config-prettier", "tslint-react-hooks"],
 	"rules": {
 		"trailing-comma": false,
 		"no-console": [true, "time", "timeEnd", "trace", "log"],
@@ -25,6 +25,8 @@
 		"max-classes-per-file": [true, 3, "exclude-class-expressions"],
 		"no-var-requires": false,
 		"react-hooks-nesting": "error",
-		"linebreak-style": false
+		"linebreak-style": false,
+		"import-name": false,
+		"object-shorthand-properties-first": false
 	}
 }
