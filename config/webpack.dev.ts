@@ -3,6 +3,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import Dotenv from 'dotenv-webpack';
 
 import { PATHS } from './paths';
 import {
@@ -48,6 +49,7 @@ const config: IConfiguration = {
 		modules: ['src', 'node_modules']
 	},
 	plugins: [
+		new Dotenv({ path: PATHS.envDevelopment }),
 		new HtmlWebPackPlugin({
 			template: './src/assets/index.html',
 			filename: './index.html',

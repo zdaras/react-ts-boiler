@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import { install, applyUpdate } from 'offline-plugin/runtime';
 
 import App from '@/router/app';
 import { configureStore, history } from '@/store/store';
@@ -24,9 +23,11 @@ const renderApp = (Application: any) =>
 renderApp(App);
 
 if (process.env.NODE_ENV === 'production') {
-	install({
-		onUpdateReady: () => applyUpdate(),
-		onUpdated: () => window.location.reload()
+	import('offline-plugin/runtime').then(plugin => {
+		plugin.install({
+			onUpdateReady: () => plugin.applyUpdate(),
+			onUpdated: () => window.location.reload()
+		});
 	});
 }
 

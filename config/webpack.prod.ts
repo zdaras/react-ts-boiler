@@ -4,7 +4,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import Dotenv from 'dotenv-webpack';
 
 import { PATHS, resolve } from './paths';
 import {
@@ -18,13 +18,10 @@ import {
 	mediaConfig
 } from './webpack.rules';
 
-interface IConfiguration extends WebpackConfiguration {
-	devServer?: WebpackDevServerConfiguration;
-}
 // because there are no type definitions available
 const OfflinePlugin: any = require('offline-plugin');
 
-const config: IConfiguration = {
+const config: WebpackConfiguration = {
 	mode: 'production',
 	entry: ['./src/index.tsx'],
 	output: {
@@ -52,6 +49,7 @@ const config: IConfiguration = {
 		modules: ['src', 'node_modules']
 	},
 	plugins: [
+		new Dotenv({ path: PATHS.env }),
 		new HtmlWebPackPlugin({
 			template: './src/assets/index.html',
 			filename: './index.html',

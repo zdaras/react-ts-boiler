@@ -14,5 +14,7 @@ export const PATHS: IIndexedList<string> = {
 	utilities: resolve('./src/utilities'),
 	components: resolve('./src/components'),
 	containers: resolve('./src/containers'),
-	nodeModules: resolve('./node_modules')
+	nodeModules: resolve('./node_modules'),
+	env: resolve('./.env'),
+	envDevelopment: resolve('./.env.development')
 };
