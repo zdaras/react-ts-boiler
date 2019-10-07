@@ -26,8 +26,7 @@
 		"react-router-dom": "5.1.2",
 		"redux": "4.0.4",
 		"redux-devtools-extension": "2.13.8",
-		"redux-thunk": "^2.3.0",
-		"rimraf": "^3.0.0"
+		"redux-thunk": "^2.3.0"
 	},
 	"devDependencies": {
 		"@hot-loader/react-dom": "16.9.0",
@@ -77,6 +76,7 @@
 		"prop-types": "15.7.2",
 		"react-hot-loader": "4.12.14",
 		"react-test-renderer": "16.10.1",
+		"rimraf": "^3.0.0",
 		"sass-loader": "8.0.0",
 		"style-loader": "1.0.0",
 		"stylelint": "11.0.0",

@@ -6,11 +6,11 @@ import { Switch } from 'react-router';
 
 import '@/assets/scss/app.scss';
 
-import { routes, LoadableNotFoundComponent } from './routes';
+import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 
 const App = hot(() => (
 	<Switch>
-		{routes.map(r => (
+		{routes.map((r: IRoute) => (
 			<Route key={r.path} path={r.path} exact={r.exact} component={r.component} />
 		))}
 		<Route component={LoadableNotFoundComponent} />
