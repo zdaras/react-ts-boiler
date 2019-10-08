@@ -5,10 +5,16 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import App from '@/router/app';
 import { configureStore, history } from '@/store/store';
+import { themeSwitch } from '@/store/actions/app';
+import storage from '@/utils/storage';
+import { IThemeMode } from '@/styled/themes';
 
 export const store = configureStore();
 
 history.listen(() => window.scrollTo(0, 0));
+
+const storageTheme: IThemeMode | null = storage('theme').get();
+if (storageTheme && storageTheme !== 'light') store.dispatch(themeSwitch(storageTheme));
 
 const renderApp = (Application: any) =>
 	render(
