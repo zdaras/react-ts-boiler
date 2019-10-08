@@ -3,16 +3,16 @@ import { hot } from 'react-hot-loader/root';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, DefaultTheme } from 'styled-components';
 
-import { themes, ITheme, IThemeMode } from '@/styled/themes';
+import { themes, IThemeMode } from '@/styled/themes';
 import { GlobalStyle } from '@/styled/global';
 import { IRootStore } from '@/store/reducers';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 
 const App: FC<IStateProps> = ({ theme }) => {
-	const activeTheme: ITheme = themes[theme];
+	const activeTheme: DefaultTheme = themes[theme];
 
 	return (
 		<ThemeProvider theme={activeTheme}>

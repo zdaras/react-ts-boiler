@@ -8,7 +8,7 @@
 		"build": "cross-env NODE_ENV=production && rimraf ./dist && webpack --config './config/webpack.prod.ts'",
 		"clean": "rimraf ./dist",
 		"lint": "npm run lint:ts && npm run lint:scss",
-		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'src/**/*.{ts,tsx}'",
+		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'src/**/*.{ts,tsx}' --exclude 'src/**/*.d.ts'",
 		"lint:scss": "stylelint './src/**/*.scss' --config .stylelintrc",
 		"format": "prettier --write src/**/*.{ts,tsx}",
 		"test": "jest",

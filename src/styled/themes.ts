@@ -1,6 +1,4 @@
-import { IIndexedList } from '@/types';
-
-export const themes: IIndexedList<object> = {
+export const themes = {
 	light: {
 		type: 'light',
 		bgColor: 'white',
