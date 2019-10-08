@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 
-import Button from '@/components/button';
+import Button from '@/components/library/button';
 import { IRootStore } from '@/store/reducers';
 import { ICounterState } from '@/store/reducers/counter';
 import * as counterActions from '@/store/actions/counter';
