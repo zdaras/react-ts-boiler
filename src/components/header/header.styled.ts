@@ -4,5 +4,6 @@ export const StyledHeader = styled.header`
 	background-color: #f1f1f1;
 	display: flex;
 	align-items: center;
-	padding: 1rem;
+	justify-content: space-between;
+	padding: 1rem 2rem;
 `;
