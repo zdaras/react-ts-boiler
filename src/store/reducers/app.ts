@@ -1,12 +1,13 @@
 import * as constants from '@/store/constants';
+import { IThemeMode } from '@/styled/themes';
 
 export interface IAppState {
-	theme: string;
+	theme: IThemeMode;
 }
 
 export interface IAppAction {
 	type: string;
-	payload: IAppState;
+	payload: IThemeMode;
 }
 
 const initialState: IAppState = {
@@ -18,7 +19,7 @@ const appReducer = (state: IAppState = initialState, action: IAppAction) => {
 		case constants.APP_THEME_SWITCH:
 			return {
 				...state,
-				theme: action.payload.theme
+				theme: action.payload
 			};
 
 		default:

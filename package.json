@@ -112,8 +112,6 @@
   "lint-staged": {
 		"*.{ts,tsx}": [
 			"npm run lint:ts",
-			"npm run format",
-			"npm run test:update",
 			"git add"
 		]
 	},

@@ -14,3 +14,6 @@ export const themes: IIndexedList<object> = {
 		fontFamily: 'sans-serif'
 	}
 };
+
+export type ITheme = typeof themes['light'];
+export type IThemeMode = 'light' | 'dark';

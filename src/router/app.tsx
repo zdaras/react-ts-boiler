@@ -3,16 +3,16 @@ import { hot } from 'react-hot-loader/root';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
-import { ThemeProvider, DefaultTheme } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
-import { themes } from '@/styled/themes';
+import { themes, ITheme, IThemeMode } from '@/styled/themes';
 import { GlobalStyle } from '@/styled/global';
 import { IRootStore } from '@/store/reducers';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 
 const App: FC<IStateProps> = ({ theme }) => {
-	const activeTheme: DefaultTheme = themes[theme];
+	const activeTheme: ITheme = themes[theme];
 
 	return (
 		<ThemeProvider theme={activeTheme}>
@@ -30,7 +30,7 @@ const App: FC<IStateProps> = ({ theme }) => {
 };
 
 interface IStateProps {
-	theme: string;
+	theme: IThemeMode;
 }
 
 const mapStateToProps = (state: IRootStore): IStateProps => ({
