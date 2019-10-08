@@ -28,7 +28,8 @@
 		"redux": "4.0.4",
 		"redux-devtools-extension": "2.13.8",
 		"redux-thunk": "^2.3.0",
-		"styled-components": "^4.4.0"
+		"styled-components": "^4.4.0",
+		"why-did-you-update": "^1.0.6"
 	},
 	"devDependencies": {
 		"@hot-loader/react-dom": "16.9.0",
@@ -105,11 +106,11 @@
 		"webpack-pwa-manifest": "4.0.0"
 	},
 	"husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
 		"*.{ts,tsx}": [
 			"npm run lint:ts",
 			"git add"

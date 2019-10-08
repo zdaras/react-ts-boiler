@@ -38,6 +38,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.NODE_ENV === 'development') {
+	// causes unexpected hook errors?
+	// const { whyDidYouUpdate } = require('why-did-you-update');
+	// whyDidYouUpdate(React);
+
 	if (module.hot) {
 		module.hot.accept('./router/app', () => {
 			renderApp(require('./router/app').default);

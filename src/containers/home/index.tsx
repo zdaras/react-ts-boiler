@@ -8,11 +8,11 @@ import * as counterActions from '@/store/actions/counter';
 
 export const Home: FC<IStateProps & IDispatchProps> = ({ counter, increment, decrement }) => (
 	<main>
-		<Button onClick={() => decrement()}>-</Button>
+		<Button onClick={decrement}>-</Button>
 
 		<small>{counter.count}</small>
 
-		<Button onClick={() => increment()}>+</Button>
+		<Button onClick={increment}>+</Button>
 	</main>
 );
 
