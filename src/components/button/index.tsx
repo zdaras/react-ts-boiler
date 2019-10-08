@@ -1,6 +1,6 @@
 import React, { memo, FC, ReactNode, SyntheticEvent } from 'react';
 
-import { StyledButton } from './styled';
+import { StyledButton } from './button.styled';
 
 export const Button: FC<IProps> = ({ type, children, onClick }) => (
 	<StyledButton type={type} onClick={onClick}>
