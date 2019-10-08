@@ -1,4 +1,3 @@
-import React from 'react';
 import Loadable from 'react-loadable';
 
 export interface IRoute {
@@ -9,12 +8,12 @@ export interface IRoute {
 
 export const LoadableHomeComponent: any = Loadable({
 	loader: () => import('@/containers/home').then((comp: any) => comp),
-	loading: () => <div className="c-loader" />
+	loading: () => null
 });
 
 export const LoadableNotFoundComponent: any = Loadable({
 	loader: () => import('@/containers/not-found').then((comp: any) => comp),
-	loading: () => <div className="c-loader" />
+	loading: () => null
 });
 
 export const routes: IRoute[] = [

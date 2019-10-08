@@ -1,8 +1,5 @@
 import path from 'path';
-
-interface IIndexedList<T> {
-	[key: string]: T;
-}
+import { IIndexedList } from '../src/types';
 
 export const resolve: (path: string) => string = path.resolve.bind(__dirname);
 

@@ -42,9 +42,7 @@ export const htmlConfig: webpack.Rule = {
 
 export const postcssPlugins: string[] = [
 	require('postcss-easy-import'),
-	require('postcss-url')({
-		url: 'rebase'
-	}),
+	require('postcss-url')({ url: 'rebase' }),
 	require('postcss-utilities'),
 	require('postcss-flexbugs-fixes'),
 	require('autoprefixer')()
@@ -62,14 +60,7 @@ export const cssConfig: webpack.Rule = {
 				plugins: (loader: IHotLoader): string[] => {
 					return loader.hot
 						? postcssPlugins
-						: [
-								...postcssPlugins,
-								require('cssnano')({
-									discardComments: {
-										removeAll: true
-									}
-								})
-						  ];
+						: [...postcssPlugins, require('cssnano')({ discardComments: { removeAll: true } })];
 				}
 			}
 		},

@@ -1,6 +1,6 @@
 import React, { memo, FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
 
-import './index.scss';
+// import './index.scss';
 
 interface IOwnProps {
 	type?: 'submit' | 'reset' | 'button';
