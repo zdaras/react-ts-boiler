@@ -40,7 +40,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1em; 
   }
 
-  a {
+  a, button {
+    cursor: pointer;
     background-color: transparent;
   }
 
