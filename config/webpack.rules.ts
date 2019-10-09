@@ -9,19 +9,27 @@ interface IHotLoader extends webpack.NewLoader {
 
 export const tsConfig: webpack.Rule = {
 	test: /\.tsx?$/,
-	loaders: [
+	use: [
+		{
+			loader: 'ts-loader',
+			options: {
+				configFile: 'tsconfig.json'
+			}
+		}
+	],
+	exclude: PATHS.nodeModules,
+	include: PATHS.src
+};
+
+export const tsConfigDev: webpack.Rule = {
+	test: /\.tsx?$/,
+	use: [
 		'react-hot-loader/webpack',
 		{
-			loader: 'ts-loader'
-			// options: {
-			// 	transpileOnly: true,
-			// 	compilerOptions: {
-			// 		sourceMap: true,
-			// 		target: 'es5',
-			// 		isolatedModules: true,
-			// 		noEmitOnError: false
-			// 	}
-			// }
+			loader: 'ts-loader',
+			options: {
+				configFile: 'tsconfig.dev.json'
+			}
 		}
 	],
 	exclude: PATHS.nodeModules,

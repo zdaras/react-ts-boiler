@@ -24,6 +24,7 @@ const OfflinePlugin: any = require('offline-plugin');
 const config: WebpackConfiguration = {
 	mode: 'production',
 	entry: ['./src/index.tsx'],
+	context: PATHS.root,
 	output: {
 		path: PATHS.dist,
 		filename: '[name].[chunkhash].bundle.js',

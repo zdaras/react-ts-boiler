@@ -7,7 +7,7 @@ import Dotenv from 'dotenv-webpack';
 
 import { PATHS } from './paths';
 import {
-	tsConfig,
+	tsConfigDev,
 	htmlConfig,
 	cssConfig,
 	fontsConfig,
@@ -24,6 +24,7 @@ interface IConfiguration extends WebpackConfiguration {
 const config: IConfiguration = {
 	mode: 'development',
 	entry: ['./src/index.tsx'],
+	context: PATHS.root,
 	output: {
 		path: PATHS.dist,
 		filename: '[name].js',
@@ -32,7 +33,7 @@ const config: IConfiguration = {
 		publicPath: '/'
 	},
 	module: {
-		rules: [tsConfig, htmlConfig, cssConfig, fontsConfig, svgConfig, svgCSSConfig, imagesConfig, mediaConfig]
+		rules: [tsConfigDev, htmlConfig, cssConfig, fontsConfig, svgConfig, svgCSSConfig, imagesConfig, mediaConfig]
 	},
 	resolve: {
 		alias: {
@@ -62,7 +63,7 @@ const config: IConfiguration = {
 	],
 	cache: true,
 	bail: false,
-	devtool: 'eval-source-map',
+	devtool: 'inline-source-map',
 	devServer: {
 		hot: true,
 		noInfo: true,
@@ -73,11 +74,7 @@ const config: IConfiguration = {
 	},
 	stats: 'errors-only',
 	performance: { hints: false },
-	optimization: {
-		splitChunks: {
-			chunks: 'all'
-		}
-	}
+	optimization: { splitChunks: { chunks: 'all' } }
 };
 
 module.exports = config;
