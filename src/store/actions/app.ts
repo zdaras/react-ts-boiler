@@ -7,5 +7,3 @@ export const themeSwitch = (theme: IThemeMode): IAppAction => {
 	storage('theme').set(theme);
 	return { type: constants.APP_THEME_SWITCH, payload: theme };
 };
-
-export type IThemeSwitch = typeof themeSwitch;

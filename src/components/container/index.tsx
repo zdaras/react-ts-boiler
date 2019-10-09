@@ -1,11 +1,7 @@
-import React, { memo, FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 
 import { StyledContainer } from './container.styled';
 
-export const Container: FC<IProps> = ({ children }) => <StyledContainer>{children}</StyledContainer>;
+export const Container: FC = ({ children }) => <StyledContainer>{children}</StyledContainer>;
 
-interface IProps {
-	children?: ReactNode;
-}
-
-export default memo(Container);
+export default Container;

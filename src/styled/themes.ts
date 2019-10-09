@@ -1,7 +1,7 @@
 export const themes = {
 	light: {
 		type: 'light',
-		bgColor: 'white',
+		bgColor: '#fdfdfd',
 		btnColor: '#000',
 		fontFamily: 'sans-serif'
 	},

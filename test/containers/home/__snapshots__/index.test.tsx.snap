@@ -3,8 +3,8 @@
 exports[`Home component should render successfully 1`] = `
 <main>
   <button
-    className="sc-bdVaJa ldXAlL"
-    onClick={[Function]}
+    className="sc-bdVaJa exgGmN"
+    onClick={[MockFunction]}
   >
     -
   </button>
@@ -12,8 +12,8 @@ exports[`Home component should render successfully 1`] = `
     0
   </small>
   <button
-    className="sc-bdVaJa ldXAlL"
-    onClick={[Function]}
+    className="sc-bdVaJa exgGmN"
+    onClick={[MockFunction]}
   >
     +
   </button>
