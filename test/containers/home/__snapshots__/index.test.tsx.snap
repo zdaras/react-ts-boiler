@@ -11,6 +11,9 @@ exports[`Home component should render successfully 1`] = `
   <small>
     0
   </small>
+  <small>
+    ok
+  </small>
   <button
     className="sc-bdVaJa exgGmN"
     onClick={[MockFunction]}

@@ -5,9 +5,10 @@ import Button from '@/components/library/button';
 import { IRootStore } from '@/store/reducers';
 import * as counterActions from '@/store/actions/counter';
 
-export const Home: FC<IStateProps & IDispatchProps> = ({ counter, increment, decrement }) => (
+export const Home: FC<TProps> = ({ counter, increment, decrement, name }) => (
 	<main>
 		<Button onClick={decrement}>-</Button>
+		<small>{name}</small>
 		<small>{counter.count}</small>
 		<Button onClick={increment}>+</Button>
 	</main>
@@ -22,9 +23,19 @@ const mapDispatchToProps = {
 	decrement: counterActions.decrement
 };
 
-type IStateProps = ReturnType<typeof mapStateToProps>;
+type TStateProps = ReturnType<typeof mapStateToProps>;
 
-type IDispatchProps = typeof mapDispatchToProps;
+type TDispatchProps = typeof mapDispatchToProps;
+
+type TOwnProps = {
+	name?: string;
+};
+
+type TProps = TStateProps & TDispatchProps & TOwnProps;
+
+Home.defaultProps = {
+	name: 'Count :'
+} as Partial<TOwnProps>;
 
 export default connect(
 	mapStateToProps,

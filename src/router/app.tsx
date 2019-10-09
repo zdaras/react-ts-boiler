@@ -14,7 +14,7 @@ import Container from '@/components/container';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 
-const App: FC<IStateProps & IDispatchProps> = ({ theme, themeSwitch }) => {
+const App: FC<TProps> = ({ theme, themeSwitch }) => {
 	const activeTheme: DefaultTheme = themes[theme];
 	const changeTheme = useCallback(() => {
 		const themeToSwitch = theme === 'light' ? 'dark' : 'light';
@@ -47,9 +47,11 @@ const mapDispatchToProps = {
 	themeSwitch: appActions.themeSwitch
 };
 
-type IStateProps = ReturnType<typeof mapStateToProps>;
+type TStateProps = ReturnType<typeof mapStateToProps>;
 
-type IDispatchProps = typeof mapDispatchToProps;
+type TDispatchProps = typeof mapDispatchToProps;
+
+type TProps = TStateProps & TDispatchProps;
 
 export default hot(
 	connect(
