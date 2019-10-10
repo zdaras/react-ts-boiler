@@ -68,7 +68,7 @@ const config: IConfiguration = {
 		hot: true,
 		noInfo: true,
 		clientLogLevel: 'error',
-		stats: 'errors-only',
+		stats: 'none',
 		contentBase: './dist',
 		historyApiFallback: true
 	},
