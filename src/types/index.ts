@@ -3,7 +3,7 @@ import { Action } from 'redux';
 
 import { IRootStore } from '@/store/reducers';
 
-export interface IIndexedList<T> {
+export interface IIndexedObject<T> {
 	[key: string]: T;
 }
 

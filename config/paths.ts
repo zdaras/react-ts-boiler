@@ -1,9 +1,9 @@
 import path from 'path';
-import { IIndexedList } from '../src/types';
+import { IIndexedObject } from '../src/types';
 
 export const resolve: (path: string) => string = path.resolve.bind(__dirname);
 
-export const PATHS: IIndexedList<string> = {
+export const PATHS: IIndexedObject<string> = {
 	src: resolve('./src'),
 	root: resolve('./'),
 	dist: resolve('./dist'),

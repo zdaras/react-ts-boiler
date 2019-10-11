@@ -8,10 +8,10 @@ import { Flex, FlexItem } from '@/styled/flex';
 
 export const Home: FC<TProps> = ({ counter, increment, decrement, name }) => (
 	<Flex center>
-		<Flex xl={4} lg={4} md={4} sm={6} xs={8} align="center" justify="center" padding="1rem">
+		<Flex center sm={6} xs={8} padding="1rem">
 			<FlexItem>okkkk</FlexItem>
 		</Flex>
-		<Flex xl={4} lg={4} md={4} sm={6} xs={8} align="center" justify="center" padding="1rem">
+		<Flex center sm={6} xs={8} padding="1rem">
 			<FlexItem>
 				<Button onClick={decrement}>-</Button>
 				<small>{name}</small>
