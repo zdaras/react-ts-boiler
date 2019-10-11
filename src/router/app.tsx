@@ -10,7 +10,7 @@ import { GlobalStyle } from '@/styled/global';
 import { IRootStore } from '@/store/reducers';
 import * as appActions from '@/store/actions/app';
 import Header from '@/components/header';
-import Container from '@/components/container';
+import Container from '@/components/library/container';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 

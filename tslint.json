@@ -28,6 +28,7 @@
 		"linebreak-style": false,
 		"import-name": false,
 		"object-shorthand-properties-first": false,
-		"interface-over-type-literal": false
+		"interface-over-type-literal": false,
+		"jsx-boolean-value": false
 	}
 }

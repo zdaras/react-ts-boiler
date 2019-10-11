@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
+import { responsive } from '@/styled/responsive';
+
 export const StyledHeader = styled.header`
-	background-color: #f1f1f1;
+	background-color: ${props => props.theme.headerBg};
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 1rem 2rem;
+	padding: 1rem 0.6rem;
+	transition: all 0.3s;
+
+	@media ${responsive.md} {
+		padding: 1.5rem 2.5rem;
+	}
 `;
