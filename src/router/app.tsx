@@ -1,6 +1,6 @@
-import React, { useCallback, FC } from 'react';
+import React, { useCallback } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
@@ -11,11 +11,15 @@ import { IRootStore } from '@/store/reducers';
 import * as appActions from '@/store/actions/app';
 import Header from '@/components/header';
 import Container from '@/components/library/container';
+import useActions from '@/hooks/useActions';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 
-const App: FC<TProps> = ({ theme, themeSwitch }) => {
+const App = () => {
+	const theme = useSelector((state: IRootStore) => state.app.theme);
+	const themeSwitch = useActions(appActions.themeSwitch);
 	const activeTheme: DefaultTheme = themes[theme];
+
 	const changeTheme = useCallback(() => {
 		const themeToSwitch = theme === 'light' ? 'dark' : 'light';
 		themeSwitch(themeToSwitch);
@@ -39,23 +43,4 @@ const App: FC<TProps> = ({ theme, themeSwitch }) => {
 	);
 };
 
-const mapStateToProps = (state: IRootStore) => ({
-	theme: state.app.theme
-});
-
-const mapDispatchToProps = {
-	themeSwitch: appActions.themeSwitch
-};
-
-type TStateProps = ReturnType<typeof mapStateToProps>;
-
-type TDispatchProps = typeof mapDispatchToProps;
-
-type TProps = TStateProps & TDispatchProps;
-
-export default hot(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(App)
-);
+export default hot(App);

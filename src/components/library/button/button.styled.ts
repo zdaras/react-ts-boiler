@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-interface IStyledButtonProps {
-	type?: 'submit' | 'reset' | 'button';
-}
+import { IProps } from '.';
 
-export const StyledButton = styled.button<IStyledButtonProps>`
+export const StyledButton = styled.button<IProps>`
 	color: ${({ theme }) => theme.btnColor};
 	min-width: 2.5rem;
 	padding: 0.5rem;

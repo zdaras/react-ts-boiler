@@ -8,10 +8,14 @@ export const Button: FC<IProps> = ({ type, children, onClick }) => (
 	</StyledButton>
 );
 
-interface IProps {
+export interface IProps {
 	type?: 'submit' | 'reset' | 'button';
 	children?: ReactNode;
 	onClick?: (e: SyntheticEvent) => void;
 }
+
+Button.defaultProps = {
+	type: 'button'
+} as Partial<IProps>;
 
 export default memo(Button);
