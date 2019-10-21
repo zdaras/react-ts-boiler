@@ -1,4 +1,4 @@
-import * as constants from '@/store/constants';
+import { APP_CONSTANTS } from '@/store/constants';
 import { IThemeMode } from '@/styled/themes';
 
 const initialState: IAppState = {
@@ -7,7 +7,7 @@ const initialState: IAppState = {
 
 const appReducer = (state = initialState, action: IAppActions): IAppState => {
 	switch (action.type) {
-		case constants.APP_THEME_SWITCH:
+		case APP_CONSTANTS.APP_THEME_SWITCH:
 			return {
 				...state,
 				theme: action.payload
@@ -23,7 +23,7 @@ export interface IAppState {
 }
 
 interface IAppThemeAction {
-	type: typeof constants.APP_THEME_SWITCH;
+	type: APP_CONSTANTS.APP_THEME_SWITCH;
 	payload: IThemeMode;
 }
 

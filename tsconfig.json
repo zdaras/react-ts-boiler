@@ -10,7 +10,7 @@
 			"@components/*": ["src/components/*"],
 			"@containers/*": ["src/containers/*"]
 		},
-		// "strict": true,
+		"strict": true,
 		"skipLibCheck": true,
 		"allowSyntheticDefaultImports": true,
 		"allowJs": false,

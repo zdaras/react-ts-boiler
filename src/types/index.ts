@@ -3,4 +3,4 @@ import { Action } from 'redux';
 
 import { IRootStore } from '@/store/reducers';
 
-export type ThunkA<R, A extends Action> = ThunkAction<R, IRootStore, undefined, A>;
+export type ThunkA<Return, A extends Action> = ThunkAction<Return, IRootStore, undefined, A>;
