@@ -5,7 +5,7 @@ const initialState: IAppState = {
 	theme: 'light'
 };
 
-const appReducer = (state = initialState, action: IAppActions) => {
+const appReducer = (state = initialState, action: IAppActions): IAppState => {
 	switch (action.type) {
 		case constants.APP_THEME_SWITCH:
 			return {

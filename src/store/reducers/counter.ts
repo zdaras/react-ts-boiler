@@ -13,7 +13,7 @@ const initialState: ICounterState = {
 	count: 0
 };
 
-const counterReducer = (state: ICounterState = initialState, action: ICounterAction) => {
+const counterReducer = (state: ICounterState = initialState, action: ICounterAction): ICounterState => {
 	switch (action.type) {
 		case constants.INCREMENT:
 		case constants.DECREMENT:
