@@ -7,16 +7,16 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 import { themes } from '@/styled/themes';
 import { GlobalStyle } from '@/styled/global';
-import { IRootStore } from '@/store/reducers';
 import * as appActions from '@/store/actions/app';
 import Header from '@/components/header';
 import Container from '@/components/library/container';
 import useActions from '@/hooks/useActions';
+import { themeSelector } from '@/store/selectors/app';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 
 const App = () => {
-	const theme = useSelector((state: IRootStore) => state.app.theme);
+	const theme = useSelector(themeSelector);
 	const themeSwitch = useActions(appActions.themeSwitch);
 	const activeTheme: DefaultTheme = themes[theme];
 

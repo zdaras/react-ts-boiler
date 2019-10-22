@@ -98,6 +98,7 @@ export const Flex = styled.div<IFlexProps>`
 
 	${props => css`
 		${DIMENSIONS.map(
+			// @ts-ignore
 			(d: IResponsiveBreakpoints) =>
 				config().breakpoints[d] &&
 				config().media[d]`
@@ -170,6 +171,7 @@ export const FlexItem = styled.div<IFlexItemProps>`
 
 	${props => css`
 		${DIMENSIONS.map(
+			// @ts-ignore
 			(d: IResponsiveBreakpoints) =>
 				config().breakpoints[d] &&
 				config().media[d]`
