@@ -15,7 +15,7 @@ history.listen(() => window.scrollTo(0, 0));
 const storageTheme = storage('theme').get();
 if (storageTheme && storageTheme !== 'light') store.dispatch<any>(themeSwitch(storageTheme));
 
-const renderApp = (Application: any) =>
+const renderApp = (Application: any): any =>
 	render(
 		<Provider store={store}>
 			<ConnectedRouter history={history}>

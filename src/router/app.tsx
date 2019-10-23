@@ -23,7 +23,7 @@ const App = () => {
 	const changeTheme = useCallback(() => {
 		const themeToSwitch = theme === 'light' ? 'dark' : 'light';
 		themeSwitch(themeToSwitch);
-	}, [theme]);
+	}, [theme, themeSwitch]);
 
 	return (
 		<ThemeProvider theme={activeTheme}>
