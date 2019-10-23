@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IProps } from './index';
+import { IProps } from '.';
 
 export const StyledButton = styled.button<IProps>`
 	color: ${({ theme }) => theme.btnColor};

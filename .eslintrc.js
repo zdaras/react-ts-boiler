@@ -6,6 +6,7 @@ module.exports = {
 	},
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
+		ecmaVersion: 2018,
 		project: './tsconfig.json',
 		sourceType: 'module'
 	},
@@ -207,6 +208,11 @@ module.exports = {
 		'react/prop-types': 0,
 		'import/no-named-as-default': 0,
 		'global-require': 0,
-		'import/no-cycle': 0
+		'import/no-cycle': 0,
+		'import/no-extraneous-dependencies': 0,
+		'arrow-body-style': 0,
+		'@typescript-eslint/camelcase': 0,
+		'vars-on-top': 0,
+		'no-var': 0
 	}
 };

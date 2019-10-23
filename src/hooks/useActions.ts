@@ -9,7 +9,7 @@ const useActions = <T>(actions: T, deps: [] = []): typeof actions => {
 			return actions.map(a => bindActionCreators(a, dispatch));
 		}
 		return bindActionCreators<any, any>(actions, dispatch);
-	}, deps);
+	}, [dispatch, ...deps]);
 };
 
 export default useActions;
