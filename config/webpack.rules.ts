@@ -49,10 +49,10 @@ export const htmlConfig: webpack.Rule = {
 };
 
 export const postcssPlugins: string[] = [
-	require('postcss-easy-import'),
-	require('postcss-url')({ url: 'rebase' }),
-	require('postcss-utilities'),
-	require('postcss-flexbugs-fixes'),
+	// require('postcss-easy-import'),
+	// require('postcss-url')({ url: 'rebase' }),
+	// require('postcss-utilities'),
+	// require('postcss-flexbugs-fixes'),
 	require('autoprefixer')()
 ];
 

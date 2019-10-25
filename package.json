@@ -17,7 +17,6 @@
 	"dependencies": {
 		"connected-react-router": "6.5.2",
 		"history": "4.10.1",
-		"normalize.css": "8.0.1",
 		"react": "16.10.1",
 		"react-dom": "16.10.1",
 		"react-hot-loader": "^4.12.15",
