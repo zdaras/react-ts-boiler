@@ -1,7 +1,9 @@
+import { defaultTheme } from '@/styled/themes';
+
 import { APP_CONSTANTS, IAppActions, IAppState } from './types';
 
 const initialState: IAppState = {
-	theme: 'light'
+	theme: defaultTheme
 };
 
 const reducer = (state = initialState, action: IAppActions): IAppState => {

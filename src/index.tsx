@@ -7,13 +7,14 @@ import App from '@/router/app';
 import { configureStore, history } from '@/store';
 import { themeSwitch } from '@/store/ducks/app/action-creators';
 import storage from '@/utils/storage';
+import { defaultTheme } from '@/styled/themes';
 
 export const store = configureStore();
 
 history.listen(() => window.scrollTo(0, 0));
 
 const storageTheme = storage('theme').get();
-if (storageTheme && storageTheme !== 'light') store.dispatch<any>(themeSwitch(storageTheme));
+if (storageTheme && storageTheme !== defaultTheme) store.dispatch<any>(themeSwitch(storageTheme));
 
 const renderApp = (Application: any) =>
 	render(

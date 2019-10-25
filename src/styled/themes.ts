@@ -17,3 +17,5 @@ export const themes = {
 
 export type ITheme = typeof themes['light'];
 export type IThemeMode = 'light' | 'dark';
+
+export const defaultTheme: IThemeMode = 'light';
