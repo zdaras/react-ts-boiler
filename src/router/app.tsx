@@ -13,7 +13,7 @@ import useActions from '@/hooks/useActions';
 import * as appActions from '@/store/ducks/app/action-creators';
 import { themeSelector } from '@/store/ducks/app/selectors';
 
-import { routes, LoadableNotFoundComponent, IRoute } from './routes';
+import { routes, AsyncPage, IRoute } from './routes';
 
 const App = () => {
 	const theme = useSelector(themeSelector);
@@ -35,7 +35,7 @@ const App = () => {
 						{routes.map((r: IRoute) => (
 							<Route key={r.path} path={r.path} exact={r.exact} component={r.component} />
 						))}
-						<Route component={LoadableNotFoundComponent} />
+						<Route component={() => <AsyncPage page="not-found" />} />
 					</Switch>
 				</Container>
 			</>

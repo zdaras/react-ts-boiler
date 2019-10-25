@@ -1,13 +1,13 @@
 import React, { memo, FC } from 'react';
 
 import Button from '@/components/library/button';
-import { StyledHeader } from './header.styled';
+import { HeaderStyled } from './header-styled';
 
 export const Header: FC<IOwnProps> = ({ changeTheme }) => (
-	<StyledHeader>
+	<HeaderStyled>
 		<span>HEADER</span>
 		<Button onClick={changeTheme}>SWITCH</Button>
-	</StyledHeader>
+	</HeaderStyled>
 );
 
 interface IOwnProps {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { StyledContainer } from './container.styled';
+import { ContainerStyled } from './container-styled';
 
-export const Container: FC = ({ children }) => <StyledContainer>{children}</StyledContainer>;
+export const Container: FC = ({ children }) => <ContainerStyled>{children}</ContainerStyled>;
 
 export default Container;

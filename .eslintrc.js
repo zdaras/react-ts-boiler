@@ -10,11 +10,13 @@ module.exports = {
 		project: './tsconfig.json',
 		sourceType: 'module'
 	},
-	plugins: ['@typescript-eslint', 'react', 'prettier', 'react-hooks'],
+	plugins: ['@typescript-eslint', 'react', 'prettier', 'import', 'react-hooks'],
 	extends: [
 		'airbnb',
 		'eslint:recommended',
-		'plugin:import/recommended',
+		'plugin:import/errors',
+		'plugin:import/warnings',
+		'plugin:import/typescript',
 		'plugin:@typescript-eslint/eslint-recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
@@ -213,6 +215,7 @@ module.exports = {
 		'@typescript-eslint/camelcase': 0,
 		'vars-on-top': 0,
 		'no-var': 0,
-		'react/no-unescaped-entities': 0
+		'react/no-unescaped-entities': 0,
+		'react/display-name': 0
 	}
 };

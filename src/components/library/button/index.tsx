@@ -1,11 +1,11 @@
 import React, { memo, FC, ReactNode, SyntheticEvent } from 'react';
 
-import { StyledButton } from './button.styled';
+import { ButtonStyled } from './button-styled';
 
 export const Button: FC<IProps> = ({ type, children, onClick }) => (
-	<StyledButton type={type} onClick={onClick}>
+	<ButtonStyled type={type} onClick={onClick}>
 		{children}
-	</StyledButton>
+	</ButtonStyled>
 );
 
 export interface IProps {

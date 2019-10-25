@@ -1,3 +1,3 @@
 # react-ts-boiler
 
-react typescript boilerplate with webpack, redux, react-loadable, styled-components + postcss, testing tools
+react typescript boilerplate with webpack, redux, @loadable/component, styled-components + postcss, testing tools

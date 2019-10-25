@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { responsive } from '@/styled/responsive';
 
-export const StyledHeader = styled.header`
+export const HeaderStyled = styled.header`
 	background-color: ${props => props.theme.headerBg};
 	display: flex;
 	align-items: center;
