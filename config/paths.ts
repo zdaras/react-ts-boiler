@@ -9,7 +9,7 @@ export const PATHS: Record<string, string> = {
 	assets: resolve('./src/assets'),
 	utilities: resolve('./src/utilities'),
 	components: resolve('./src/components'),
-	containers: resolve('./src/containers'),
+	pages: resolve('./src/pages'),
 	nodeModules: resolve('./node_modules'),
 	env: resolve('./.env'),
 	envDevelopment: resolve('./.env.development')

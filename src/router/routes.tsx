@@ -7,12 +7,12 @@ export interface IRoute {
 }
 
 export const LoadableHomeComponent: any = Loadable({
-	loader: () => import('@/containers/home').then((comp: any) => comp),
+	loader: () => import('@/pages/home').then((comp: any) => comp),
 	loading: () => null
 });
 
 export const LoadableNotFoundComponent: any = Loadable({
-	loader: () => import('@/containers/not-found').then((comp: any) => comp),
+	loader: () => import('@/pages/not-found').then((comp: any) => comp),
 	loading: () => null
 });
 

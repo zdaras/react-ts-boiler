@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Home } from '@/containers/home';
+import { Home } from '@/pages/home';
 
 describe('Home component', () => {
 	it('should render successfully', () => {

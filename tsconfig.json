@@ -8,7 +8,7 @@
 			"@assets/*": ["src/assets/*"],
 			"@utilities/*": ["src/utilities/*"],
 			"@components/*": ["src/components/*"],
-			"@containers/*": ["src/containers/*"]
+			"@pages/*": ["src/pages/*"]
 		},
 		"strict": true,
 		"skipLibCheck": true,
