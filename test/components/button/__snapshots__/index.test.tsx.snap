@@ -3,5 +3,6 @@
 exports[`Button component should render successfully 1`] = `
 <button
   className="sc-bdVaJa exgGmN"
+  type="button"
 />
 `;

@@ -4,7 +4,7 @@ import { History, createBrowserHistory } from 'history';
 import { Store, Middleware, createStore, applyMiddleware } from 'redux';
 import thunk, { ThunkMiddleware } from 'redux-thunk';
 
-import rootReducer, { IRootStore } from './reducers';
+import rootReducer, { IRootStore } from './ducks/root-reducer';
 
 export const history: History = createBrowserHistory();
 const historyMiddleware: Middleware = routerMiddleware(history);

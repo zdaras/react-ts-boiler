@@ -7,11 +7,11 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 import { themes } from '@/styled/themes';
 import { GlobalStyle } from '@/styled/global';
-import * as appActions from '@/store/actions/app';
 import Header from '@/components/header';
 import Container from '@/components/library/container';
 import useActions from '@/hooks/useActions';
-import { themeSelector } from '@/store/selectors/app';
+import * as appActions from '@/store/ducks/app/action-creators';
+import { themeSelector } from '@/store/ducks/app/selectors';
 
 import { routes, LoadableNotFoundComponent, IRoute } from './routes';
 

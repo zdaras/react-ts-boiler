@@ -2,13 +2,11 @@ import { History } from 'history';
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
-import counter from './counter';
-import app from './app';
+import app from './app/reducers';
 
 const rootReducer = (history: History) =>
 	combineReducers({
 		router: connectRouter(history),
-		counter,
 		app
 	});
 

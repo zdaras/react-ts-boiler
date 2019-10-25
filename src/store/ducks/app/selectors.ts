@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { IRootStore } from '@/store/reducers';
+import { IRootStore } from '@/store/ducks/root-reducer';
 
 export const themeSelector = createSelector(
 	(state: IRootStore) => state.app,

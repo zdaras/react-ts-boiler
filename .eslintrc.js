@@ -212,6 +212,7 @@ module.exports = {
 		'arrow-body-style': 0,
 		'@typescript-eslint/camelcase': 0,
 		'vars-on-top': 0,
-		'no-var': 0
+		'no-var': 0,
+		'react/no-unescaped-entities': 0
 	}
 };

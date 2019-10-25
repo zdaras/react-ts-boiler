@@ -1,24 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home component should render successfully 1`] = `
-<main>
-  <button
-    className="sc-bdVaJa exgGmN"
-    onClick={[MockFunction]}
+<div
+  className="sc-bdVaJa fDpJja"
+>
+  <div
+    className="sc-bdVaJa PqXEI"
   >
-    -
-  </button>
-  <small>
-    0
-  </small>
-  <small>
-    ok
-  </small>
-  <button
-    className="sc-bdVaJa exgGmN"
-    onClick={[MockFunction]}
-  >
-    +
-  </button>
-</main>
+    <span>
+      HOME
+    </span>
+  </div>
+</div>
 `;

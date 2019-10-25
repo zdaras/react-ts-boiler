@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 
 import App from '@/router/app';
-import { configureStore, history } from '@/store/store';
-import { themeSwitch } from '@/store/actions/app';
+import { configureStore, history } from '@/store';
+import { themeSwitch } from '@/store/ducks/app/action-creators';
 import storage from '@/utils/storage';
 
 export const store = configureStore();
@@ -45,8 +45,8 @@ if (process.env.NODE_ENV === 'development') {
 		module.hot.accept('./router/app', () => {
 			renderApp(require('./router/app').default);
 		});
-		module.hot.accept('./store/reducers', () => {
-			store.replaceReducer(require('./store/reducers').default(history));
+		module.hot.accept('./store/ducks/root-reducer', () => {
+			store.replaceReducer(require('./store/ducks/root-reducer').default(history));
 		});
 	}
 }
