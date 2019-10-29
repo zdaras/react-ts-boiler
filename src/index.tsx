@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import App from '@/router/app';
 import { configureStore, history } from '@/store';
-import { themeSwitch } from '@/store/ducks/app/action-creators';
+import { appActions } from '@/store/ducks/app';
 import storage from '@/utils/storage';
 import { defaultTheme } from '@/styled/themes';
 
@@ -14,7 +14,7 @@ export const store = configureStore();
 history.listen(() => window.scrollTo(0, 0));
 
 const storageTheme = storage('theme').get();
-if (storageTheme && storageTheme !== defaultTheme) store.dispatch<any>(themeSwitch(storageTheme));
+if (storageTheme && storageTheme !== defaultTheme) store.dispatch<any>(appActions.themeSwitchAction(storageTheme));
 
 const renderApp = (Application: any) =>
 	render(

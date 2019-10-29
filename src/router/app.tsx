@@ -10,14 +10,13 @@ import { GlobalStyle } from '@/styled/global';
 import Header from '@/components/header';
 import Container from '@/components/library/container';
 import useActions from '@/hooks/useActions';
-import * as appActions from '@/store/ducks/app/action-creators';
-import { themeSelector } from '@/store/ducks/app/selectors';
+import { appSelectors, appActions } from '@/store/ducks/app';
 
 import { routes, AsyncPage, IRoute } from './routes';
 
 const App = () => {
-	const theme = useSelector(themeSelector);
-	const themeSwitch = useActions(appActions.themeSwitch);
+	const theme = useSelector(appSelectors.theme);
+	const themeSwitch = useActions(appActions.themeSwitchAction);
 	const activeTheme: DefaultTheme = themes[theme];
 
 	const changeTheme = useCallback(() => {
