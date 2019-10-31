@@ -8,5 +8,3 @@ export interface IAppState {
 export interface IThemeSwitchAction extends Action {
 	payload: IThemeMode;
 }
-
-export type IAppActions = IThemeSwitchAction;

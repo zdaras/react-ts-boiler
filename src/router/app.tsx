@@ -9,6 +9,7 @@ import { themes } from '@/styled/themes';
 import { GlobalStyle } from '@/styled/global';
 import Header from '@/components/header';
 import Container from '@/components/library/container';
+import ToastContainer from '@/components/toast';
 import useActions from '@/hooks/useActions';
 import { appSelectors, appActions } from '@/store/ducks/app';
 
@@ -27,6 +28,7 @@ const App = () => {
 	return (
 		<ThemeProvider theme={activeTheme}>
 			<>
+				<ToastContainer />
 				<GlobalStyle />
 				<Container>
 					<Header changeTheme={changeTheme} />
