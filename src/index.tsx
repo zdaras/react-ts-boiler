@@ -8,6 +8,7 @@ import { configureStore, history } from '@/store';
 import { appActions } from '@/store/ducks/app';
 import storage from '@/utils/storage';
 import { defaultTheme } from '@/styled/themes';
+import '@/services/locale/i18n';
 
 export const store = configureStore();
 

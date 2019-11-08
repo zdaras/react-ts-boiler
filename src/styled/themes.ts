@@ -3,6 +3,7 @@ export const themes = {
 		type: 'light',
 		bgColor: '#fdfdfd',
 		btnColor: '#000',
+		btnBgColorActive: '#63aab3',
 		fontFamily: 'sans-serif',
 		headerBg: '#f1f1f1'
 	},
@@ -10,6 +11,7 @@ export const themes = {
 		type: 'dark',
 		bgColor: '#1F2933',
 		btnColor: '#f1f1f1',
+		btnBgColorActive: '#63aab3',
 		fontFamily: 'sans-serif',
 		headerBg: '#b4cee8'
 	}

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { IProps } from '.';
 
@@ -16,4 +16,10 @@ export const ButtonStyled = styled.button<IProps>`
 		color: white;
 		background: black;
 	}
+
+	${({ theme, active }) =>
+		active &&
+		css`
+			background: ${theme.btnBgColorActive};
+		`}
 `;
