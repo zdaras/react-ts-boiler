@@ -1,6 +1,5 @@
 {
   "extends": "./tsconfig",
-  "transpileOnly": true,
   "compilerOptions": {
       "target": "es6",
       "module": "esnext",

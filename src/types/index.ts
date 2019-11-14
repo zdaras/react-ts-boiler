@@ -19,3 +19,7 @@ export interface Action<T = string, P = any> {
 	type?: T;
 	payload?: P;
 }
+
+export type ThenArg<T> = T extends Promise<infer U> ? U : T extends (...args: any[]) => Promise<infer U> ? U : T;
+
+export type AxiosData<T, K = 'data'> = ThenArg<T>[K];

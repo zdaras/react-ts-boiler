@@ -216,6 +216,8 @@ module.exports = {
 		'vars-on-top': 0,
 		'no-var': 0,
 		'react/no-unescaped-entities': 0,
-		'react/display-name': 0
+		'react/display-name': 0,
+		'react/jsx-props-no-spreading': 0,
+		'space-before-function-paren': 0
 	}
 };
