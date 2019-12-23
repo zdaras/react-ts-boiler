@@ -1,6 +1,6 @@
 import { History } from 'history';
 import { connectRouter } from 'connected-react-router';
-import { combineReducers } from 'redux-starter-kit';
+import { combineReducers } from '@reduxjs/toolkit';
 
 import app from './app';
 import toast from './toast';

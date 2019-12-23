@@ -1,6 +1,6 @@
 import { routerMiddleware } from 'connected-react-router';
 import { History, createBrowserHistory } from 'history';
-import { Store, Middleware, configureStore as createStore, getDefaultMiddleware } from 'redux-starter-kit';
+import { Store, Middleware, configureStore as createStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
 import rootReducer, { IRootStore } from './ducks/root-reducer';
 

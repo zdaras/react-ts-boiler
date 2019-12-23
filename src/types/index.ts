@@ -1,4 +1,4 @@
-import { Action as ReduxAction, AnyAction } from 'redux-starter-kit';
+import { Action as ReduxAction, AnyAction } from '@reduxjs/toolkit';
 
 import { IRootStore } from '@/store/ducks/root-reducer';
 
@@ -22,4 +22,5 @@ export interface Action<T = string, P = any> {
 
 export type ThenArg<T> = T extends Promise<infer U> ? U : T extends (...args: any[]) => Promise<infer U> ? U : T;
 
+// @ts-ignore
 export type AxiosData<T, K = 'data'> = ThenArg<T>[K];

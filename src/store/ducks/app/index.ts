@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from 'redux-starter-kit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 import { defaultTheme } from '@/styled/themes';
 import { IRootStore } from '@/store/ducks/root-reducer';
